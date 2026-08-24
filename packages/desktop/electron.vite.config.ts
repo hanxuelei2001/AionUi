@@ -243,7 +243,7 @@ export default defineConfig(({ mode }) => {
         ...(enableSentrySourceMaps ? [sentryVitePlugin(sentryPluginOptions)] : []),
       ],
       build: {
-        target: 'es2022',
+        target: 'chrome109',
         sourcemap: enableSentrySourceMaps ? 'hidden' : isDevelopment,
         minify: !isDevelopment,
         reportCompressedSize: false,

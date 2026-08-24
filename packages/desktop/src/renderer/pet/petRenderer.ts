@@ -1,3 +1,5 @@
+import '@common/polyfills';
+
 const LOAD_TIMEOUT = 3000;
 const FADE_MS = 150;
 const PET_STATES_BASE_PATH = '../pet-states';

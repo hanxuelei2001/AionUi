@@ -1,3 +1,5 @@
+import '@common/polyfills';
+
 /**
  * @license
  * Copyright 2025 AionUi (aionui.com)

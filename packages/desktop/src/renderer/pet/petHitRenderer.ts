@@ -1,3 +1,5 @@
+import '@common/polyfills';
+
 const DRAG_THRESHOLD = 3;
 const CLICK_WINDOW = 400;
 const STARTUP_DELAY = 500;
