@@ -12,8 +12,10 @@
   "success": "Giriş başarılı! Yönlendiriliyor...",
   "showPassword": "Şifreyi göster",
   "hidePassword": "Şifreyi gizle",
-  "languageToggle": "Dili değiştir",
-  "footerPrimary": "Komut satırı AI'nızı dönüştürün",
+  "languageToggle": "Dil değiştir",
+  "defaultCredentialsTip": "Varsayılan Hesap: admin | Varsayılan Şifre: admin",
+  "quickLogin": "Doğrudan Giriş",
+  "footerPrimary": "Komut satırı yapay zekasını modernize edin",
   "footerSecondary": "Modern ve Verimli",
   "errors": {
     "empty": "Lütfen kullanıcı adı ve şifre girin",

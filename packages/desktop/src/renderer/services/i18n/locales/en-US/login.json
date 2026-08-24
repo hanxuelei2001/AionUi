@@ -13,6 +13,8 @@
   "showPassword": "Show password",
   "hidePassword": "Hide password",
   "languageToggle": "Change language",
+  "defaultCredentialsTip": "Default Account: admin | Default Password: admin",
+  "quickLogin": "Direct Sign In",
   "footerPrimary": "Transform your command-line AI",
   "footerSecondary": "Modern & Efficient",
   "errors": {

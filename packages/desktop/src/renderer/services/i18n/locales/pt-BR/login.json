@@ -13,6 +13,8 @@
   "showPassword": "Mostrar senha",
   "hidePassword": "Ocultar senha",
   "languageToggle": "Mudar idioma",
+  "defaultCredentialsTip": "Conta padrão: admin | Senha padrão: admin",
+  "quickLogin": "Entrar diretamente",
   "footerPrimary": "Transforme sua IA de linha de comando",
   "footerSecondary": "Moderno e Eficiente",
   "errors": {

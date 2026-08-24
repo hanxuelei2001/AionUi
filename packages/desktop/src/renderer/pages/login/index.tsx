@@ -36,9 +36,9 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { status, login } = useAuth();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('admin');
+  const [rememberMe, setRememberMe] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [message, setMessage] = useState<MessageState | null>(null);
   const [loading, setLoading] = useState(false);
@@ -46,6 +46,7 @@ const LoginPage: React.FC = () => {
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const messageTimer = useRef<number | undefined>(undefined);
+  const autoLoginAttemptedRef = useRef(false);
 
   useEffect(() => {
     document.body.classList.add('login-page-active');
@@ -84,8 +85,23 @@ const LoginPage: React.FC = () => {
   useEffect(() => {
     if (status === 'authenticated') {
       void navigate('/guid', { replace: true });
+    } else if (status === 'unauthenticated' && !autoLoginAttemptedRef.current) {
+      autoLoginAttemptedRef.current = true;
+      const targetUsername = (username || 'admin').trim();
+      const targetPassword = password || 'admin';
+      setLoading(true);
+      void login({ username: targetUsername, password: targetPassword, remember: true }).then((result) => {
+        if (result.success) {
+          localStorage.setItem(REMEMBER_ME_KEY, 'true');
+          localStorage.setItem(REMEMBERED_USERNAME_KEY, obfuscate(targetUsername));
+          localStorage.setItem(REMEMBERED_PASSWORD_KEY, obfuscate(targetPassword));
+          void navigate('/guid', { replace: true });
+        } else {
+          setLoading(false);
+        }
+      });
     }
-  }, [navigate, status]);
+  }, [login, navigate, password, status, username]);
 
   const clearMessageLater = useCallback(() => {
     if (messageTimer.current) {
@@ -221,6 +237,10 @@ const LoginPage: React.FC = () => {
           </div>
           <h1 className='login-page__title'>{t('login.brand')}</h1>
           <p className='login-page__subtitle'>{t('login.subtitle')}</p>
+          <div className='login-page__credentials-tip'>
+            <span className='login-page__credentials-tip-icon'>ℹ️</span>
+            <span>{t('login.defaultCredentialsTip')}</span>
+          </div>
         </div>
 
         <form className='login-page__form' onSubmit={handleSubmit}>

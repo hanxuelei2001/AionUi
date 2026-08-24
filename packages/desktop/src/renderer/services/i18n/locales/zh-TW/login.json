@@ -13,6 +13,8 @@
   "showPassword": "顯示密碼",
   "hidePassword": "隱藏密碼",
   "languageToggle": "切換語言",
+  "defaultCredentialsTip": "預設帳號：admin | 預設密碼：admin",
+  "quickLogin": "直接登入",
   "footerPrimary": "命令列 AI 的現代化體驗",
   "footerSecondary": "高效且優雅",
   "errors": {

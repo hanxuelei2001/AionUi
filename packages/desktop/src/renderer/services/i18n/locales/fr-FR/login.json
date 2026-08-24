@@ -13,6 +13,8 @@
   "showPassword": "Afficher le mot de passe",
   "hidePassword": "Masquer le mot de passe",
   "languageToggle": "Changer de langue",
+  "defaultCredentialsTip": "Compte par défaut : admin | Mot de passe par défaut : admin",
+  "quickLogin": "Connexion directe",
   "footerPrimary": "Transformez votre IA en ligne de commande",
   "footerSecondary": "Moderne et efficace",
   "errors": {

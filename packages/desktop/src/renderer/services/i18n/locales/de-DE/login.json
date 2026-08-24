@@ -12,8 +12,10 @@
   "success": "Anmeldung erfolgreich! Weiterleitung...",
   "showPassword": "Passwort anzeigen",
   "hidePassword": "Passwort ausblenden",
-  "languageToggle": "Sprache ändern",
-  "footerPrimary": "Verwandle deine Kommandozeilen-KI",
+  "languageToggle": "Sprache wechseln",
+  "defaultCredentialsTip": "Standardkonto: admin | Standardpasswort: admin",
+  "quickLogin": "Direkt anmelden",
+  "footerPrimary": "Transformieren Sie Ihre Befehlszeilen-KI",
   "footerSecondary": "Modern & Effizient",
   "errors": {
     "empty": "Bitte Benutzername und Passwort eingeben",

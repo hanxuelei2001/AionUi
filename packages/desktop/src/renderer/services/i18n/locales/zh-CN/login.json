@@ -13,6 +13,8 @@
   "showPassword": "显示密码",
   "hidePassword": "隐藏密码",
   "languageToggle": "切换语言",
+  "defaultCredentialsTip": "默认账号：admin | 默认密码：admin",
+  "quickLogin": "直接登录",
   "footerPrimary": "命令行 AI 的现代化体验",
   "footerSecondary": "高效且优雅",
   "errors": {

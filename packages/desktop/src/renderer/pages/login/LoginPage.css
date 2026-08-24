@@ -371,6 +371,24 @@ body.login-page-active {
   color: #ddd;
 }
 
+.login-page__credentials-tip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 14px;
+  background: #f0f4ff;
+  border: 1px solid #c7d7f9;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #3b5998;
+  font-weight: 500;
+}
+
+.login-page__credentials-tip-icon {
+  font-size: 14px;
+}
+
 @media (max-width: 600px) {
   .login-page__card {
     margin: 20px;

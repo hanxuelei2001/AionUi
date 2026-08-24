@@ -13,7 +13,9 @@
   "showPassword": "Показать пароль",
   "hidePassword": "Скрыть пароль",
   "languageToggle": "Сменить язык",
-  "footerPrimary": "Преобразуйте свой ИИ командной строки",
+  "defaultCredentialsTip": "Учетная запись по умолчанию: admin | Пароль: admin",
+  "quickLogin": "Прямой вход",
+  "footerPrimary": "Современный интерфейс для командной строки ИИ",
   "footerSecondary": "Современно и эффективно",
   "errors": {
     "empty": "Введите имя пользователя и пароль",

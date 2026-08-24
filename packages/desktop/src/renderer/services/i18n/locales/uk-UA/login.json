@@ -13,6 +13,8 @@
   "showPassword": "Показати пароль",
   "hidePassword": "Приховати пароль",
   "languageToggle": "Змінити мову",
+  "defaultCredentialsTip": "Обліковий запис за замовчуванням: admin | Пароль: admin",
+  "quickLogin": "Прямий вхід",
   "footerPrimary": "Трансформуйте свій ШІ у командному рядку",
   "footerSecondary": "Сучасно та ефективно",
   "errors": {

@@ -13,7 +13,9 @@
   "showPassword": "パスワードを表示",
   "hidePassword": "パスワードを隠す",
   "languageToggle": "言語を切り替える",
-  "footerPrimary": "コマンドラインAIをモダンに変革",
+  "defaultCredentialsTip": "デフォルトアカウント：admin | パスワード：admin",
+  "quickLogin": "直接ログイン",
+  "footerPrimary": "コマンドライン AI のモダンな体験",
   "footerSecondary": "効率的でエレガント",
   "errors": {
     "empty": "ユーザー名とパスワードを入力してください",
