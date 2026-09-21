@@ -120,12 +120,7 @@ jobs:
           $arch = "${{ matrix.arch }}"
           $electronVer = (node -p "require('./package.json').devDependencies.electron.replace(/[\^~]/g, '')").Trim()
           Write-Host "Rebuilding native modules for Electron $electronVer ($arch)"
-          try {
-            bun x --yes prebuild-install --runtime=electron --target=$electronVer --platform=win32 --arch=$arch --force
-          } catch {
-            Write-Host "prebuild-install fallback to electron-rebuild"
-            bunx electron-rebuild -f -w better-sqlite3
-          }
+          bun x --yes @electron/rebuild -f -w better-sqlite3 --build-from-source --arch=$arch
 
       # Non-Windows native modules setup
       - name: Rebuild native modules for Electron (macOS/Linux)
