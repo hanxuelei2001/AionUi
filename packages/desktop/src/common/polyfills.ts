@@ -14,13 +14,13 @@
 
 if (typeof Array.prototype.toReversed !== 'function') {
   Array.prototype.toReversed = function <T>(this: T[]): T[] {
-    return Array.from(this).toReversed();
+    return Array.from(this).reverse();
   };
 }
 
 if (typeof Array.prototype.toSorted !== 'function') {
   Array.prototype.toSorted = function <T>(this: T[], compareFn?: (a: T, b: T) => number): T[] {
-    return Array.from(this).toSorted(compareFn);
+    return Array.from(this).sort(compareFn);
   };
 }
 

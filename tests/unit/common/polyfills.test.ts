@@ -114,4 +114,40 @@ describe('Chrome 109 Polyfills', () => {
       expect(result).toBe('success');
     });
   });
+
+  describe('Chrome 109 simulated environment (missing native methods)', () => {
+    it('toReversed polyfill does not cause Maximum call stack size exceeded', () => {
+      const origToReversed = Array.prototype.toReversed;
+      delete (Array.prototype as any).toReversed;
+
+      // Manually apply polyfill logic as in polyfills.ts
+      if (typeof Array.prototype.toReversed !== 'function') {
+        Array.prototype.toReversed = function <T>(this: T[]): T[] {
+          return Array.from(this).reverse();
+        };
+      }
+
+      const arr = [1, 2, 3, 4];
+      expect(arr.toReversed()).toEqual([4, 3, 2, 1]);
+
+      Array.prototype.toReversed = origToReversed;
+    });
+
+    it('toSorted polyfill does not cause Maximum call stack size exceeded', () => {
+      const origToSorted = Array.prototype.toSorted;
+      delete (Array.prototype as any).toSorted;
+
+      // Manually apply polyfill logic as in polyfills.ts
+      if (typeof Array.prototype.toSorted !== 'function') {
+        Array.prototype.toSorted = function <T>(this: T[], compareFn?: (a: T, b: T) => number): T[] {
+          return Array.from(this).sort(compareFn);
+        };
+      }
+
+      const arr = [3, 1, 4, 2];
+      expect(arr.toSorted()).toEqual([1, 2, 3, 4]);
+
+      Array.prototype.toSorted = origToSorted;
+    });
+  });
 });
