@@ -9,6 +9,11 @@ on:
       - 'v*'
   workflow_dispatch:
     inputs:
+      branch:
+        description: '要构建的分支名（如 main、dev、feature/xxx；留空则使用当前运行分支）'
+        required: false
+        type: string
+        default: ''
       draft:
         description: 'Create as draft release'
         type: boolean
@@ -57,6 +62,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -120,12 +128,7 @@ jobs:
           $arch = "${{ matrix.arch }}"
           $electronVer = (node -p "require('./package.json').devDependencies.electron.replace(/[\^~]/g, '')").Trim()
           Write-Host "Rebuilding native modules for Electron $electronVer ($arch)"
-          try {
-            bun x --yes prebuild-install --runtime=electron --target=$electronVer --platform=win32 --arch=$arch --force
-          } catch {
-            Write-Host "prebuild-install fallback to electron-rebuild"
-            bunx electron-rebuild -f -w better-sqlite3
-          }
+          bun x --yes @electron/rebuild -f -w better-sqlite3 --build-from-source --arch=$arch
 
       # Non-Windows native modules setup
       - name: Rebuild native modules for Electron (macOS/Linux)
@@ -182,6 +185,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
+          fetch-depth: 0
 
       - name: Resolve Release Tag from package.json
         id: release_info
